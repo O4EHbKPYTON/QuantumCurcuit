@@ -1,0 +1,7 @@
+android/
+export/
+.import/
+*.translation
+export_presets.cfg
+.mono/
+default_env.tres

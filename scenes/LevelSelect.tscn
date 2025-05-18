@@ -1,0 +1,189 @@
+[gd_scene load_steps=14 format=3 uid="uid://dcuyecv0016pw"]
+
+[ext_resource type="Script" uid="uid://bgk82pbvqlvqh" path="res://scripts/levelGrid.gd" id="1"]
+[ext_resource type="FontFile" path="res://font/bigFont/UbuntuMono-R.tres" id="2"]
+[ext_resource type="FontFile" path="res://font/bigFont/Ubuntu-R.tres" id="3"]
+[ext_resource type="FontFile" path="res://font/bigFont/Latin-Modern-Math.tres" id="4"]
+[ext_resource type="FontFile" uid="uid://bjgw5y8rcuqu4" path="res://font/Ubuntu-B.ttf" id="5"]
+[ext_resource type="Script" uid="uid://c0ay26s3wxnig" path="res://scripts/initialDialog.gd" id="7"]
+[ext_resource type="FontFile" path="res://font/Ubuntu-B.tres" id="8"]
+[ext_resource type="Theme" path="res://font/bigFont/button.theme" id="9"]
+[ext_resource type="Script" uid="uid://d378b14x8tj7d" path="res://scripts/mainMenu.gd" id="10"]
+[ext_resource type="FontFile" path="res://font/Ubuntu-R.tres" id="11"]
+[ext_resource type="FontFile" path="res://font/bigFont/Ubuntu-B.tres" id="12"]
+[ext_resource type="FontFile" path="res://font/bigFont/Hack-Regular.tres" id="13"]
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("5")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="LevelNode" type="Node2D"]
+
+[node name="LevelContainer" type="ScrollContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 515.0
+offset_top = 64.0
+offset_right = 985.0
+offset_bottom = 539.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelContainer"]
+layout_mode = 2
+
+[node name="LevelGrid" type="GridContainer" parent="LevelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(470, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 6
+script = ExtResource("1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GatesDialog" type="Window" parent="CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2i(0, 36)
+visible = false
+script = ExtResource("7")
+
+[node name="GatesLabel" type="RichTextLabel" parent="CanvasLayer/GatesDialog"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(592, 452)
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 616.0
+offset_bottom = 476.0
+theme = ExtResource("9")
+theme_override_fonts/normal_font = ExtResource("3")
+theme_override_fonts/mono_font = ExtResource("2")
+theme_override_fonts/italics_font = ExtResource("4")
+theme_override_fonts/bold_italics_font = ExtResource("13")
+theme_override_fonts/bold_font = ExtResource("12")
+bbcode_enabled = true
+
+[node name="OptionDialog" type="Window" parent="CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2i(0, 36)
+visible = false
+script = ExtResource("7")
+
+[node name="OptionLabel" type="Label" parent="CanvasLayer/OptionDialog"]
+offset_top = 24.0
+offset_right = 500.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("12")
+text = "Options"
+horizontal_alignment = 1
+
+[node name="OptionLabel2" type="Label" parent="CanvasLayer/OptionDialog"]
+offset_top = 79.4374
+offset_right = 500.0
+offset_bottom = 107.437
+theme_override_fonts/font = ExtResource("12")
+text = "(#Debug Mode Only)"
+horizontal_alignment = 1
+
+[node name="UnlockButton" type="Button" parent="CanvasLayer/OptionDialog"]
+visible = false
+offset_left = 125.0
+offset_top = 113.866
+offset_right = 381.0
+offset_bottom = 162.866
+theme = ExtResource("9")
+text = "Unlock All Level"
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/OptionDialog"]
+visible = false
+offset_left = 78.0
+offset_top = 189.0
+offset_right = 405.0
+offset_bottom = 238.0
+theme = ExtResource("9")
+text = "Reset Progress"
+
+[node name="Xbutton" type="CheckButton" parent="CanvasLayer/OptionDialog"]
+unique_name_in_owner = true
+offset_left = 80.0
+offset_top = 100.0
+offset_right = 400.0
+offset_bottom = 151.0
+theme = ExtResource("9")
+theme_override_fonts/font = ExtResource("8")
+text = "  Use ⊕ Symbol"
+
+[node name="AboutDialog" type="Window" parent="CanvasLayer"]
+unique_name_in_owner = true
+position = Vector2i(0, 36)
+visible = false
+script = ExtResource("7")
+
+[node name="AboutLabel" type="RichTextLabel" parent="CanvasLayer/AboutDialog"]
+offset_left = 24.0
+offset_top = 30.0
+offset_right = 476.0
+offset_bottom = 142.0
+theme_override_fonts/normal_font = ExtResource("11")
+theme_override_fonts/mono_font = ExtResource("2")
+theme_override_fonts/italics_font = ExtResource("4")
+theme_override_fonts/bold_font = ExtResource("12")
+bbcode_enabled = true
+text = "Quantum Circuit game 
+
+Version : 1.0                                   Author : Yan Matveev and Artur Raulichkas
+"
+
+[node name="Button" type="Button" parent="CanvasLayer/AboutDialog"]
+visible = false
+offset_left = 78.2728
+offset_top = 189.0
+offset_right = 422.273
+offset_bottom = 238.0
+theme = ExtResource("9")
+text = "Игра квантовые схемы"
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 40.0
+script = ExtResource("10")
+
+[node name="Label" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 220.0
+offset_right = 305.0
+offset_bottom = 253.0
+theme_override_fonts/font = SubResource("1")
+text = "Квантовы схемы"
+
+[node name="GateButton" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 290.0
+offset_right = 354.0
+offset_bottom = 348.0
+theme = ExtResource("9")
+text = "Гейты
+"
+
+[node name="OptionButton" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 366.0
+offset_right = 354.0
+offset_bottom = 424.0
+theme = ExtResource("9")
+text = "Настройки"
+
+[node name="AboutButton" type="Button" parent="Menu"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 442.0
+offset_right = 354.0
+offset_bottom = 500.0
+theme = ExtResource("9")
+text = "Об игре"
