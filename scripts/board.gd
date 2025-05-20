@@ -16,8 +16,10 @@ var columnLength  : int = 12
 var level  = null
 var target = null
 
-static func to_bin(x,n : int) -> String:
-	var binStr : String = ""
+const tolerance = 0.00001
+
+static func to_bin(x,n: int) -> String:
+	var binStr: String = ""
 	for i in n:
 		binStr = ("1" if 1 & (x >> i) else "0") + binStr
 	return binStr
@@ -29,9 +31,8 @@ func parse_target(output) -> Array:
 		targ[i] = comp.Cx.new(output[i].x, output[i].y)
 	return targ
 
-const tolerance = 0.00001
 func display_state(state : Array):
-	var resultText : RichTextLabel = $"Result/resultText"
+	var resultText: RichTextLabel = $"Result/resultText"
 	resultText.clear()
 	for eig in len(state):
 		var coef : comp.Cx = state[eig]
@@ -41,15 +42,15 @@ func display_state(state : Array):
 			to_bin(eig,nQubit),
 			probability*100
 		]
-		if probability > tolerance :
+		if probability > tolerance:
 			resultText.append_text(st)
-		elif self.resultDispAll :
+		elif self.resultDispAll:
 			resultText.append_text("[color=#888]%s[/color]" % st)
 
 func check_result():
-	var success : bool = comp.eqlist_abs(self.target,self.circuit.result) \
+	var success: bool = comp.eqlist_abs(self.target,self.circuit.result) \
 		if self.level.prob else comp.eqlist(self.target,self.circuit.result)
-	if success :
+	if success:
 		var nextLevelID = GlobalVar.levelList[level.id + 1].id
 		GlobalVar.unlockedLevel[nextLevelID] = true
 		GlobalVar.save_level()
@@ -66,7 +67,7 @@ func evaluate_circuit():
 	check_result()
 
 func compile_gate():
-	var gateBoard : GridContainer = $gateBoard
+	var gateBoard: GridContainer = $gateBoard
 	var gates = []
 	for _col in range(self.columnLength):
 		var row = []
@@ -91,50 +92,46 @@ func setup_qin(inp):
 		panel.custom_minimum_size = Vector2(imgSize,imgSize)
 		panel.add_child(qTexture)
 		($QIn as GridContainer).add_child(panel)
-		if inp == null : break
-		
+		if inp == null: break
+
 func result_display_set(toggled):
 	self.resultDispAll = not toggled
 	var last_result = self.circuit.result
 	if last_result != null:
 		display_state(last_result)
-	
+
 func show_help_popup():
 	$CanvasLayer/InitialDialog.popup_centered()
-	
+
 func setup_result():
 	var _x = ($"Result/ResultButton" as Button).connect("toggled", Callable(self, "result_display_set"))
-	
+
 func setup_task(text: String):
 	($Task/TaskPanel/TaskText as RichTextLabel).clear()
 	($Task/TaskPanel/TaskText as RichTextLabel).append_text(text)
 
-func setup_popup(texts : Array):
+func setup_popup(texts: Array):
 	var _c1 = $CanvasLayer/SuccessDialog/NextButton.connect("pressed", Callable(self, "go_next_level"))
 	var _c2 = $CanvasLayer/SuccessDialog/CloseButton.connect("pressed", Callable($CanvasLayer/SuccessDialog, "hide"))
-	
-	
 	var _c3 = $CanvasLayer/returnDialog/OkButton.connect("pressed", Callable(self, "go_back_to_menu"))
 	var _c4 = $CanvasLayer/returnDialog/CancelButton.connect("pressed", Callable($CanvasLayer/returnDialog, "hide"))
-	
 	if(len(texts) == 0):
 		$Dimmer.clear()
 		$Task/HelpButton.disabled = true
 		return
-	var textLabel : RichTextLabel = $CanvasLayer/InitialDialog/Text
+	var textLabel: RichTextLabel = $CanvasLayer/InitialDialog/Text
 	for text in texts:
 		if text.begins_with("res://"):
 			textLabel.add_image(load(text) as Texture2D, 64, 64)
-		else :
+		else:
 			textLabel.append_text(text)
 	show_help_popup()
-	
 
 func go_next_level():
 	GlobalVar.selectedLevel = GlobalVar.levelList[level.id + 1]
-	if GlobalVar.onMobile :
+	if GlobalVar.onMobile:
 		var _scene = get_tree().change_scene_to_file("res://scenes/BoardMobile.tscn")
-	else :
+	else:
 		var _scene = get_tree().change_scene_to_file("res://scenes/Board.tscn")
 
 func go_back_to_menu():
@@ -182,14 +179,13 @@ func check_ctrl_line():
 		else:
 			for row in nQubit-1:
 				lineBoard.get_child(columnLength*row + col).get_child(0).hide()
-				
 
 func setup_ctrl_line():
-	var lineBoard : GridContainer = $controlLineBoard
+	var lineBoard: GridContainer = $controlLineBoard
 	for _row in nQubit-1:
 		for _col in columnLength:
 			var panel = Panel.new()
-			var img : TextureRect = TextureRect.new()
+			var img: TextureRect = TextureRect.new()
 			img.set_scale(Vector2(imgScale,imgScale))
 			img.texture = load("res://sprites/lineCtrl.png")
 			panel.custom_minimum_size = Vector2(imgSize,imgSize)
@@ -199,33 +195,26 @@ func setup_ctrl_line():
 
 const originalSize = Vector2(1024,600)
 func center_on_screen():
-	var viewportSize : Vector2 = get_viewport_rect().size
+	var viewportSize: Vector2 = get_viewport_rect().size
 	var dx = viewportSize.x - originalSize.x
 	if dx > 0:
-		var boardNode : Node2D = get_tree().root.get_child(1)
+		var boardNode: Node2D = get_tree().root.get_child(1)
 		boardNode.translate(Vector2(dx/2,0))
 	
 func scale_ui():
-	var viewportSize : Vector2 = get_viewport_rect().size
+	var viewportSize: Vector2 = get_viewport_rect().size
 	var dx = viewportSize.x - originalSize.x
-	# Eval Button
-	$EvalButton.position += Vector2(dx,0)
-	# PaletteBack
-	$paletteBack.size += Vector2(dx,0)
-	# Dialog
-	$CanvasLayer/InitialDialog.size += Vector2i(dx,0)
+	$EvalButton.position += Vector2(dx,0) # Eval Button
+	$paletteBack.size += Vector2(dx,0) # PaletteBack
+	$CanvasLayer/InitialDialog.size += Vector2i(dx,0) # Dialog
 	$CanvasLayer/InitialDialog/Text.size += Vector2(dx,0)
-	# Result
-	$Result.position += Vector2(dx,0)
-	# Task
-	$Task/TaskPanel.size += Vector2(dx,0)
-	$Task/TaskPanel/TaskText.size += Vector2(dx,0)
-	# ghostLine
-	$ghostLine.size += Vector2(
+	$Result.position += Vector2(dx,0) # Result
+	$Task/TaskPanel.size += Vector2(dx,0) # Task
+	$Task/TaskPanel/TaskText.size += Vector2(dx,0) 
+	$ghostLine.size += Vector2( # ghostLine
 		128*dx/64,
 		(self.nQubit-1)*128
 	)
-	# dy
 	if self.nQubit < 4 and GlobalVar.onMobile :
 		var dy = 50
 		$Result.position += Vector2(0,-64)

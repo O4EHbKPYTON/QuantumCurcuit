@@ -51,6 +51,6 @@ func refresh_texture():
 			$TextureButton.texture_normal = load("res://sprites/gateS.png")
 			$TextureButton.texture_hover  = load("res://sprites/gateShover.png")
 
-func _ready():		
+func _ready():
 	var _c = $TextureButton.connect("pressed", Callable(self, "set_type_palette"))
 	refresh_texture()

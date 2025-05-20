@@ -58,7 +58,7 @@ script = ExtResource("1")
 [node name="controlLineBoard" type="GridContainer" parent="."]
 offset_left = 108.0
 offset_top = 153.6
-offset_right = 722.0
+offset_right = 708.0
 offset_bottom = 307.6
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
@@ -69,7 +69,7 @@ offset_left = 108.0
 offset_top = 128.0
 offset_right = 722.0
 offset_bottom = 334.0
-theme_override_constants/h_separation = 0
+theme_override_constants/h_separation = -5
 theme_override_constants/v_separation = 0
 columns = 12
 
@@ -247,6 +247,7 @@ script = ExtResource("11")
 [node name="InitialDialog" type="Window" parent="CanvasLayer"]
 unique_name_in_owner = true
 position = Vector2i(0, 36)
+size = Vector2i(600, 400)
 visible = false
 theme_override_fonts/title_font = ExtResource("9")
 script = ExtResource("10")
@@ -266,6 +267,7 @@ bbcode_enabled = true
 
 [node name="SuccessDialog" type="Window" parent="CanvasLayer"]
 position = Vector2i(0, 36)
+size = Vector2i(390, 180)
 visible = false
 script = ExtResource("10")
 
@@ -295,6 +297,7 @@ text = "Close"
 
 [node name="returnDialog" type="Window" parent="CanvasLayer"]
 position = Vector2i(0, 36)
+size = Vector2i(430, 200)
 visible = false
 script = ExtResource("10")
 

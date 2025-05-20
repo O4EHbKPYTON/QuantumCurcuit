@@ -63,6 +63,7 @@ var unlockedLevel : Dictionary = {
 	103 : true,
 	104 : true,
 }
+
 var unlockedLevelInit = null
 
 func save_level():
@@ -71,7 +72,6 @@ func save_level():
 		file.store_line(JSON.stringify(self.unlockedLevel))
 	file.close()
 
-	
 func save_opti():
 	var saved = FileAccess.open(optiFilePath, FileAccess.WRITE)
 	if saved:
@@ -81,7 +81,6 @@ func save_opti():
 func load_level():
 	if not FileAccess.file_exists(saveFilePath):
 		return
-
 	var file = FileAccess.open(saveFilePath, FileAccess.READ)
 	if file:
 		var parse_result = JSON.parse_string(file.get_line())
@@ -90,18 +89,15 @@ func load_level():
 				self.unlockedLevel[int(key)] = parse_result[key]
 		file.close()
 
-	
 func load_opti():
 	if not FileAccess.file_exists(optiFilePath):
 		return
-
 	var file = FileAccess.open(optiFilePath, FileAccess.READ)
 	if file:
 		var parse_result = JSON.parse_string(file.get_line())
 		if typeof(parse_result) == TYPE_BOOL:
 			self.useNotSymbol = parse_result
 		file.close()
-
 
 func unlock_all_level():
 	for key in self.unlockedLevel:
