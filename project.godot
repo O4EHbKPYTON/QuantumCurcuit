@@ -27,7 +27,6 @@ GlobalVar="*res://scripts/globalVar.gd"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
-window/stretch/scale_mode="integer"
 window/handheld/orientation="sensor_landscape"
 window/vsync/vsync_mode=false
 

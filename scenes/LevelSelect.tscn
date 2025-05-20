@@ -158,7 +158,7 @@ offset_top = 220.0
 offset_right = 305.0
 offset_bottom = 253.0
 theme_override_fonts/font = SubResource("1")
-text = "Квантовы схемы"
+text = "Квантовые схемы"
 
 [node name="GateButton" type="Button" parent="Menu"]
 layout_mode = 0
