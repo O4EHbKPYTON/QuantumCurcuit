@@ -254,7 +254,7 @@ func _ready():
 			var gate  = GateClass.instantiate()
 			gate.palette = $gatePalette
 			gate.board   = self
-			gate.set_scale(Vector2(imgScale,imgScale))
+			gate.set_scale(Vector2(1,1))
 			panel.custom_minimum_size = Vector2(imgSize,imgSize)
 			panel.add_theme_stylebox_override("panel",styleTrans)
 			panel.add_child(gate)
