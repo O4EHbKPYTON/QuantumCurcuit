@@ -1,19 +1,19 @@
 extends Node
 
 const levelList = preload("res://scripts/levels.gd").levels
-const optiFilePath  = "user://optigame.save"
-const saveFilePath  = "user://savegame.save"
+const optiFilePath = "user://optigame.save"
+const saveFilePath = "user://savegame.save"
 
 var selectedLevel = null
-var levelGridScroll : int = 0
+var levelGridScroll: int = 0
 
-var onMobile : bool = false
+var onMobile: bool = true
 
 # Options
-var useNotSymbol : bool = true
+var useNotSymbol: bool = true
 
 # unlocked
-var unlockedLevel : Dictionary = {
+var unlockedLevel: Dictionary = {
 	0 : true,
 	1 : false,
 	2 : false,

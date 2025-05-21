@@ -240,6 +240,7 @@ script = ExtResource("11")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InitialDialog" type="Window" parent="CanvasLayer"]
+size = Vector2i(600, 400)
 visible = false
 theme_override_fonts/title_font = ExtResource("9")
 script = ExtResource("10")
@@ -258,6 +259,7 @@ theme_override_fonts/bold_font = ExtResource("14")
 bbcode_enabled = true
 
 [node name="SuccessDialog" type="Window" parent="CanvasLayer"]
+size = Vector2i(390, 180)
 visible = false
 script = ExtResource("10")
 
@@ -286,6 +288,7 @@ theme = ExtResource("13")
 text = "Close"
 
 [node name="returnDialog" type="Window" parent="CanvasLayer"]
+size = Vector2i(430, 200)
 visible = false
 script = ExtResource("10")
 
@@ -295,7 +298,7 @@ offset_top = 24.0
 offset_right = 312.0
 offset_bottom = 83.0
 theme_override_fonts/font = ExtResource("14")
-text = "Return to Menu?"
+text = "Вернуться в меню?"
 
 [node name="OkButton" type="Button" parent="CanvasLayer/returnDialog"]
 offset_left = 230.0
@@ -303,7 +306,7 @@ offset_top = 94.0
 offset_right = 390.0
 offset_bottom = 158.0
 theme = ExtResource("13")
-text = "OK"
+text = "Да"
 
 [node name="CancelButton" type="Button" parent="CanvasLayer/returnDialog"]
 offset_left = 40.0
@@ -311,4 +314,4 @@ offset_top = 94.0
 offset_right = 200.0
 offset_bottom = 158.0
 theme = ExtResource("13")
-text = "Cancel"
+text = "Нет"
