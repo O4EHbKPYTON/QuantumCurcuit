@@ -1,7 +1,0 @@
-res://scenes/Board.tscn
-res://scripts/board.gd
-res://scenes/LevelSelect.tscn
-res://scripts/gate.gd
-res://scripts/globalVar.gd
-res://scripts/initialDialog.gd
-res://scripts/levelGrid.gd
