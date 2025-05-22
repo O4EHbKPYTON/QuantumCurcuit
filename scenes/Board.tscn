@@ -5,22 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://bowgvyrw721ch" path="res://sprites/gateSelected.png" id="3"]
 [ext_resource type="FontFile" path="res://font/UbuntuMono-R.tres" id="4"]
 [ext_resource type="Script" uid="uid://21gtrr6s8np5" path="res://scripts/board.gd" id="5"]
-[ext_resource type="Theme" path="res://font/button.theme" id="6"]
-[ext_resource type="FontFile" path="res://font/Ubuntu-R.tres" id="7"]
+[ext_resource type="Theme" uid="uid://c0aseakiqde25" path="res://font/button.theme" id="6"]
+[ext_resource type="FontFile" uid="uid://b2aymotck2fcn" path="res://font/Ubuntu-R.tres" id="7"]
 [ext_resource type="FontFile" path="res://font/Latin-Modern-Math.tres" id="8"]
 [ext_resource type="FontFile" path="res://font/Ubuntu-R-small.tres" id="9"]
 [ext_resource type="Script" uid="uid://c0ay26s3wxnig" path="res://scripts/initialDialog.gd" id="10"]
 [ext_resource type="Script" uid="uid://mgkqd8dqsbby" path="res://scripts/dimmer.gd" id="11"]
 [ext_resource type="FontFile" path="res://font/Latin-Modern-Math-Offset.tres" id="12"]
 [ext_resource type="Texture2D" uid="uid://b4n134wfewtyh" path="res://sprites/gateEmpty.png" id="13"]
-[ext_resource type="Theme" path="res://font/bigFont/button.theme" id="14"]
+[ext_resource type="Theme" uid="uid://ddm6yhbbk1iwx" path="res://font/bigFont/button.theme" id="14"]
 [ext_resource type="FontFile" path="res://font/bigFont/Ubuntu-B.tres" id="15"]
 
 [sub_resource type="StyleBoxFlat" id="5"]
 bg_color = Color(0.207843, 0.207843, 0.227451, 1)
 
 [sub_resource type="StyleBoxFlat" id="1"]
-bg_color = Color(0.00392157, 0.529412, 0.52549, 1)
+bg_color = Color(0.2, 0.188235, 0.372549, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -249,7 +249,7 @@ script = ExtResource("11")
 [node name="InitialDialog" type="Window" parent="CanvasLayer"]
 unique_name_in_owner = true
 position = Vector2i(0, 36)
-size = Vector2i(600, 400)
+size = Vector2i(800, 500)
 visible = false
 theme_override_fonts/title_font = ExtResource("9")
 script = ExtResource("10")

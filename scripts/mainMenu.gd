@@ -81,9 +81,6 @@ func show_gate_popup():
 	
 func show_option_popup():
 	%OptionDialog.popup()
-	
-func show_about_popup():
-	%AboutDialog.popup()
 
 const originalSize = Vector2(1024,600)
 
@@ -94,7 +91,6 @@ func center_on_screen():
 		var boardNode : Node2D = get_tree().root.get_child(1)
 		boardNode.translate(Vector2(dx/2,0))
 		%OptionDialog.position += Vector2i(int(dx / 2), 0) 
-		%AboutDialog.position += Vector2i(dx/2,0)
 		(%LevelContainer as ScrollContainer).size += Vector2(dx/2,0)
 
 func _ready():
@@ -103,4 +99,3 @@ func _ready():
 	prepare_option_popup()
 	var _c1 = $GateButton.connect("pressed", Callable(self, "show_gate_popup"))
 	var _c2 = $OptionButton.connect("pressed", Callable(self, "show_option_popup"))
-	var _c4 = $AboutButton.connect("pressed", Callable(self, "show_about_popup"))

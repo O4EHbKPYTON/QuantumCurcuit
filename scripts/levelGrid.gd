@@ -2,7 +2,7 @@ extends GridContainer
 
 const levelList = preload("res://scripts/levels.gd").levels
 const sections  = preload("res://scripts/levels.gd").section
-const colnum    = 6
+const colnum    = 5
 
 const buttonTheme : Theme = preload("res://font/button.theme")
 const ubuntuFont  : Font  = preload("res://font/Ubuntu-R.tres")
@@ -56,11 +56,11 @@ func generate_level_buttons():
 		panel.add_child(levelButton)
 		self.add_child(panel)
 		pad = (pad-1 + colnum) % colnum
-		
+
 func regenerate_level_buttons():
 	for child in self.get_children(): child.queue_free()
 	generate_level_buttons()
-	
+
 func _ready():
 	generate_level_buttons()
 	await RenderingServer.frame_post_draw
