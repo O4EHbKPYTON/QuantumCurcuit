@@ -7,14 +7,13 @@
 [ext_resource type="FontFile" uid="uid://bjgw5y8rcuqu4" path="res://font/Ubuntu-B.ttf" id="5"]
 [ext_resource type="Script" uid="uid://c0ay26s3wxnig" path="res://scripts/initialDialog.gd" id="7"]
 [ext_resource type="FontFile" path="res://font/Ubuntu-B.tres" id="8"]
-[ext_resource type="Theme" uid="uid://d16da4ij43v7q" path="res://font/bigFont/button.theme" id="9"]
+[ext_resource type="Theme" uid="uid://vwr8qa2v0g8v" path="res://font/bigFont/button.theme" id="9"]
 [ext_resource type="Script" uid="uid://d378b14x8tj7d" path="res://scripts/mainMenu.gd" id="10"]
 [ext_resource type="FontFile" path="res://font/bigFont/Ubuntu-B.tres" id="12"]
 [ext_resource type="FontFile" path="res://font/bigFont/Hack-Regular.tres" id="13"]
 
 [sub_resource type="FontFile" id="1"]
 fallbacks = Array[Font]([ExtResource("5")])
-antialiasing = 1
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
