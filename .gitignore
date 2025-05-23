@@ -9,7 +9,8 @@ default_env.tres
 *.import/
 export.cfg
 export_presets.cfg
-
+*.import
+*.tres
 # System/temporary files
 *.bak
 *.swp
