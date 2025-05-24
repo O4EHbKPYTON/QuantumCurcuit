@@ -115,10 +115,10 @@ const levels = [
 	},
 	{
 		id     = 7,
-		desc   = "Even more control",
-		task   = "Create the state [i]|100⟩[/i]\n\n" +\
-		"*a gate can have more than one control nodes, and will active if " +\
-		"all the control qubits is [i]|1⟩[/i]",
+		desc   = "Больше контроля!",
+		task   = "Создайте состояние [i]|100⟩[/i]\n\n" +
+"*Гейт может иметь несколько управляющих кубитов и активируется только тогда, когда " +
+"все управляющие кубиты находятся в состоянии [i]|1⟩[/i]",
 		input  = [0,1,0],
 		prob   = true,
 		output = [
