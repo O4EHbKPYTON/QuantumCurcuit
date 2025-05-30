@@ -48,7 +48,7 @@ func generate_level_buttons():
 		var levelButton: Button = Button.new()
 		var _c = levelButton.connect("pressed", Callable(self, "run_level").bind(level))
 		levelButton.theme = buttonTheme
-		levelButton.text = str(level.id)
+		levelButton.text = str(level.id+1)
 		levelButton.custom_minimum_size = Vector2(64,64)
 		panel.custom_minimum_size = Vector2(64,64)
 		if !GlobalVar.unlockedLevel[level.id]:

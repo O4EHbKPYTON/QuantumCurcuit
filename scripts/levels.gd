@@ -17,7 +17,7 @@ const allGates = [
 # level descriptions
 const levels = [
 	{
-		id     = 1,
+		id     = 0,
 		desc   = "evaluate intro",
 		task   = "Нажмите кнопку  [b]Провести измерение[/b]",
 		input  = [0],
@@ -30,7 +30,7 @@ const levels = [
 		locked = [],
 	},
 	{
-		id     = 2,
+		id     = 1,
 		desc   = "X intro",
 		task   = "Превратите кубит в состояние [i]|0⟩[/i]",
 		input  = [1],
@@ -43,7 +43,7 @@ const levels = [
 		locked = [],
 	},
 	{
-		id     = 3,
+		id     = 2,
 		desc   = "Multi-bits intro",
 		task   = "Создайте состояние [i]|10⟩[/i]",
 		input  = [0,1],
@@ -58,7 +58,7 @@ const levels = [
 		locked = [],
 	},
 	{
-		id     = 4,
+		id     = 3,
 		desc   = "Multi-bits two",
 		task   = "Создайте состояние [i]|111⟩[/i]",
 		input  = [0,1,0],
@@ -77,7 +77,7 @@ const levels = [
 		locked = [],
 	},
 	{
-		id     = 5,
+		id     = 4,
 		desc   = "Control intro",
 		task   = "Создайте состояние [i]|00⟩[/i] поместив элемент control в гейт\n\n" + \
 		"Серый блок означает, что он заблокирован и не может быть изменен",
@@ -93,7 +93,7 @@ const levels = [
 		locked = [[1,3,GateType.X]],
 	},
 	{
-		id     = 6,
+		id     = 5,
 		desc   = "Control more",
 		task   = "Создайте состояние [i]|00⟩[/i]",
 		input  = [0,1],
@@ -114,7 +114,7 @@ const levels = [
 		],
 	},
 	{
-		id     = 7,
+		id     = 6,
 		desc   = "Больше контроля!",
 		task   = "Создайте состояние [i]|100⟩[/i]\n\n" +
 "*Гейт может иметь несколько управляющих кубитов и активируется только тогда, когда " +
@@ -141,7 +141,7 @@ const levels = [
 		],
 	},
 	{
-		id     = 8,
+		id     = 7,
 		desc   = "superposition intro",
 		task   = "Создайте суперпозицию [i]|0⟩[/i] и [i]|1⟩[/i]",
 		input  = [0],
@@ -154,7 +154,7 @@ const levels = [
 		locked = [],
 	},
 	{
-		id     = 9,
+		id     = 8,
 		desc   = "superposition all",
 		task   = "Создайте суперпозицию всех двух-кубитных состояний\n\n" \
 		+ "Все двух-кубитные состояния это ([i]|00⟩, |01⟩, |10⟩, |11⟩[/i])",
@@ -170,7 +170,7 @@ const levels = [
 		locked = [],
 	},
 	{
-		id     = 10,
+		id     = 9,
 		desc   = "superposition",
 		task   = "Создайте суперпозицию [i]|01⟩[/i] и [i]|11⟩[/i]",
 		input  = [0,0],
