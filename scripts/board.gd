@@ -110,6 +110,10 @@ func setup_task(text: String):
 	($Task/TaskPanel/TaskText as RichTextLabel).clear()
 	($Task/TaskPanel/TaskText as RichTextLabel).append_text(text)
 
+func setup_level_num(level_id: int):
+	%levelNumText.clear()
+	%levelNumText.append_text("Уровень %d" % (level_id+1))
+
 func setup_popup(texts: Array):
 	var _c1 = $CanvasLayer/SuccessDialog/NextButton.connect("pressed", Callable(self, "go_next_level"))
 	var _c2 = $CanvasLayer/SuccessDialog/CloseButton.connect("pressed", Callable($CanvasLayer/SuccessDialog, "hide"))
@@ -263,6 +267,7 @@ func _ready():
 	setup_qin(level.input)
 	setup_result()
 	setup_task(level.task)
+	setup_level_num(level.id)
 	setup_popup(popupTexts[level.id])
 	setup_ctrl_line()
 	check_ctrl_line()

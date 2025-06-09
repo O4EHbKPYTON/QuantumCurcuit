@@ -44,10 +44,27 @@ offset_right = 1068.0
 offset_bottom = 100.0
 theme_override_styles/panel = SubResource("2")
 
+[node name="levelNum" type="Panel" parent="."]
+offset_left = 701.0
+offset_top = 29.0
+offset_right = 901.0
+offset_bottom = 93.0
+theme = ExtResource("13")
+
+[node name="levelNumText" type="RichTextLabel" parent="levelNum"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 201.0
+offset_bottom = 61.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="gatePalette" type="GridContainer" parent="."]
 offset_left = 120.0
 offset_top = 30.0
-offset_right = 795.0
+offset_right = 609.0
 offset_bottom = 94.0
 columns = 12
 script = ExtResource("1")
